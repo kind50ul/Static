@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="no-js azure-header-static hasSidebar hasPageActions hasBreadcrumb conceptual" lang="en-us" dir="ltr" data-authenticated="false" data-target="docs">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="Create a static HTML web app in Azure" />
+	<meta property="og:image" content="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/microsoft-header.png" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@docsmsft" />
+	<meta name="twitter:title" content="Create a static HTML web app in Azure" />
+	<meta name="twitter:description" content="Learn how to run web apps in Azure App Service by deploying a static HTML sample app." />
+	<meta name="twitter:image" content="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/microsoft-header.png" />
+	<meta name="twitter:image:alt" content="Microsoft Logo" />
+
+		<meta name="breadcrumb_path" content="/azure/bread/toc.json" />
+<meta name="ms.custom" content="mvc" />
+<meta name="ms.devlang" content="na" />
+<meta name="ms.tgt_pltfrm" content="na" />
+<meta name="ms.assetid" content="60495cc5-6963-4bf0-8174-52786d226c26" />
+<meta name="author" content="msangapu" />
+<meta name="editor" content="" />
+<meta name="description" content="Learn how to run web apps in Azure App Service by deploying a static HTML sample app." />
+<meta name="ms.author" content="msangapu" />
+<meta name="manager" content="jeconnoc" />
+<meta name="documentationcenter" content="" />
+<meta name="ms.topic" content="quickstart" />
+<meta name="services" content="app-service\web" />
+<meta name="ms.service" content="app-service-web" />
+<meta name="ms.date" content="08/28/2018" />
+<meta name="ms.workload" content="web" />
+<meta name="search.ms_sitename" content="Docs" />
+<meta name="search.ms_docsetname" content="azure-documents" />
+<meta name="version" content="0" />
+<meta name="locale" content="en-us" />
+<meta name="site_name" content="Docs" />
+<meta name="search.ms_product" content="Azure" />
+<meta name="depot_name" content="Azure.azure-documents" />
+<meta name="updated_at" content="2018-08-28 06:35 PM" />
+<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/9ce3662a5398db43856235474e235916e42238ae/articles/app-service/app-service-web-get-started-html.md" />
+<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/app-service/app-service-web-get-started-html.md" />
+<meta name="document_id" content="a825f031-250e-034d-e552-4b0d976d88b1" />
+<meta name="document_version_independent_id" content="626d7451-0b8e-051e-e512-0bf90be319a0" />
+<meta name="page_type" content="conceptual" />
+<meta name="toc_rel" content="toc.json" />
+<meta name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}" />
+<meta name="word_count" content="694" />
+
+	<meta name="scope" content="Azure" />
+<link href="https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-html" rel="canonical">
+	<title>Create a static HTML web app in Azure | Microsoft Docs</title>
+
+		<link rel="stylesheet" href="/_themes/docs.theme/master/en-in/_themes/css/df9bf752.site-ltr.css ">
+
+	<link rel="stylesheet" href="/_themes/docs.theme/master/en-in/_themes/css/e532fd82.conceptual.css ">
+
+	<link rel="stylesheet" href="https://azurecomcdn.azureedge.net/en-in/asset/menucss/" />
+
+	<script>
+	var msDocs = {
+		data:{
+			azureHeaderLocale: 'en-in',
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-in',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: 'azure',
+			context: {
+
+			},
+			hasComments: true,
+			feedbackSystem: 'GitHub',
+			feedbackGitHubRepo: 'MicrosoftDocs/azure-docs',
+			feedbackProductUrl: 'https://feedback.azure.com/forums/169385-web-apps',
+			contentGitUrl: 'https://github.com/Microsoft/azure-docs/blob/master/articles/app-service/app-service-web-get-started-html.md',
+			forceVersionPicker:false		},
+		functions:{},
+		settings:{
+			extendBreadcrumb: false,
+			enableUHFPPE: false
+		}
+	};
+	if (!('Promise' in window && 'resolve' in window.Promise && 'reject' in window.Promise && 'all' in window.Promise && 'race' in window.Promise)) {
+		document.write('<script src="/_themes/docs.theme/master/en-in/_themes/global/js/6ee34c01.bluebird.min.js"><\/script>');
+	}
+	if (typeof fetch !== 'function') {
+		document.write('<script src="/_themes/docs.theme/master/en-in/_themes/global/js/d9fc435c.fetch.min.js"><\/script>');
+	}
+	</script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
+	<script src="/_themes/docs.theme/master/en-in/_themes/global/js/d95cd82f.localized-strings.js"></script>
+	<script src="/_themes/docs.theme/master/en-in/_themes/global/js/d4092caf.global.min.js"></script>
+
+</head>
+
+<body lang="en-in" dir="ltr">
+<div class="header-holder">
+		<div id="azure-cookie-notification-holder">
+		</div>
+		<div id="headerAreaHolder" data-bi-name="header" lang="en-in" dir="ltr">
+			<div class="azure-header-placeholder"></div>
+		</div>
+	<div class="content-header uhf-container has-padding" data-bi-name="content-header">
+
+		<ul class="breadcrumbs" data-bi-name="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList" role="navigation" aria-label="Breadcrumb"><li></li></ul>
+		<div class="content-header-controls exit-focus">
+			<button type="button" class="ap-collapse-behavior ap-expanded button-border" data-bi-name="ap-collapse">
+				<span class="docon docon-exit-mode"></span>
+Exit focus mode			</button>
+			
+		</div>
+		<div class="content-header-controls">
+			<button type="button" class="contents-button button-border" data-bi-name="contents-expand">
+				<span class="docon docon-menu"></span>
+Contents			</button>
+		</div>
+		<div class="action-bar">
+			<ul class="action-list">
+						<li>
+							<a href="#feedback" data-bi-name="comments">
+								<span class="docon docon-comment-lines" aria-hidden="true"></span><span class="action-item-text">Feedback</span>
+							</a>
+						</li>
+							<li id="contenteditbtn">
+									<a href="https://github.com/Microsoft/azure-docs/blob/master/articles/app-service/app-service-web-get-started-html.md" title="Edit This Document" data-bi-name="edit" data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/app-service/app-service-web-get-started-html.md">
+									<span class="docon docon-edit-outline" aria-hidden="true"></span><span class="action-item-text">Edit</span>
+								</a>
+							</li>
+				<li>
+					<div class="sharing dropdown has-caret" auto-align>
+						<a href="#" class="dropdown-trigger" aria-haspopup="true" aria-controls="sharing-menu" aria-expanded="false" title="Share This Document" data-bi-name="share">
+							<span class="docon docon-sharing" aria-hidden="true"></span><span class="action-item-text">Share</span>
+						</a>
+						<div class="dropdown-menu" id="sharing-menu" role="menu">
+							<ul data-bi-name="share-links">
+								<li><a class="share-twitter" data-bi-name="twitter"><span class="docon docon-brand-twitter" aria-hidden="true"></span>Twitter</a></li>
+								<li><a class="share-linkedin" data-bi-name="linkedin"><span class="docon docon-brand-linkedin" aria-hidden="true"></span>LinkedIn</a></li>
+								<li><a class="share-facebook" data-bi-name="facebook"><span class="docon docon-brand-facebook" aria-hidden="true"></span>Facebook</a></li>
+								<li><a class="share-email" data-bi-name="email"><span class="docon docon-mail-message-fill" aria-hidden="true"></span>Email</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<button class="toggle-theme" aria-label="toggle-theme" data-bi-name="select-theme"><span class="docon docon-sun"></span><span class="action-item-text">Theme</span></button>
+				</li>
+				<li class="is-unstyled-action-list-item">
+					<a class="docs-sign-in not-authenticated button is-text has-text-primary is-size-7" href="#">Sign in</a>
+					<div class="dropdown has-caret authenticated" auto-align>
+						<button class="dropdown-trigger button is-text is-radiusless" aria-label="Your Account" aria-haspopup="true" aria-controls="user-menu" aria-expanded="false">
+							<span class="image icon is-hidden-mobile" aria-hidden="true">
+								<img class="has-background-grey-light is-rounded" data-profile-property="avatarUrl">
+							</span>
+							<span class="is-size-7 is-truncated is-hidden-mobile" data-profile-property="userName"></span>
+							<span class="image icon is-hidden-tablet is-marginless" aria-hidden="true">
+								<img class="has-background-grey-light is-rounded" data-profile-property="avatarUrl">
+							</span>
+						</button>
+						<div class="dropdown-menu box" id="user-menu" role="menu">
+							<div class="media">
+								<div class="media-left">
+									<span class="image is-64x64" aria-hidden="true">
+										<img class="has-background-grey-light is-rounded" data-profile-property="avatarUrl">
+									</span>
+								</div>
+								<div class="media-content">
+									<p class="title has-margin-top-small">
+										<span class="is-truncated" style="max-width: 200px" data-profile-property="userName"></span>
+									</p>
+									<p class="subtitle">
+										<span class="is-truncated" style="max-width: 200px" data-profile-property="upn"></span>
+									</p>
+								</div>
+							</div>
+							<ul class="is-unstyled is-marginless">
+								<li><a href="/profile" data-profile-property="profileUrl">Profile</a></li>
+								<li><a class="docs-sign-out" href="#">Sign out</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<button type="button" class="contents-button" aria-label="Contents" data-bi-name="contents-expand-">
+				<span class="docon docon-editor-list-bullet"></span><span>Contents</span>
+			</button>
+		</div>
+	</div>
+	<div id="disclaimer-holder" class="disclaimer-holder"></div>
+	</div>
+
+	<div class="mainContainer uhf-container  has-top-padding " data-bi-name="body">
+		
+		<div class="columns ">
+
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<div class="columns ">
+
+					<div id="page-actions" class="right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" data-bi-name="pageactions" role="complementary" aria-label="Page Actions">
+							<nav id="side-doc-outline" class="doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="On page navigation">
+								<h3>In this article</h3>
+							</nav>
+					</div>
+
+
+				<div id="main-column" class="column  is-full is-four-fifths-desktop ">
+					
+					<main id="main" role="main" class="content" data-bi-name="content" lang="en-us" dir="ltr">
+
+
+
+						<h1 id="create-a-static-html-web-app-in-azure" sourcefile="articles/app-service/app-service-web-get-started-html.md" sourcestartlinenumber="20" sourceendlinenumber="20">Create a static HTML web app in Azure</h1>
+
+						<ul class="metadata page-metadata" data-bi-name="page info" lang="en-in" dir="ltr">
+							<li class="displayDate loading">
+								<span aria-hidden="true" class="docon docon-calendar"></span>
+								<time role="presentation" datetime="2018-08-28T00:00:00.000Z" data-article-date-source="ms.date">08/28/2018</time>
+							</li>
+								<li class="readingTime">
+									<span aria-hidden="true" class="docon docon-clock"></span>
+									3 minutes to read
+								</li>
+							<li class="contributors-holder">
+								<span class="contributors-text">Contributors</span>
+								<ul class="contributors" data-bi-name="contributors">
+											<li><a href="https://github.com/msangapu" title="msangapu" data-bi-name="contributorprofile"><img src="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/contributor.svg" data-src="https://github.com/msangapu.png?size=32" alt="msangapu"></a></li>
+											<li><a href="https://github.com/cephalin" title="Cephas Lin" data-bi-name="contributorprofile"><img src="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/contributor.svg" data-src="https://github.com/cephalin.png?size=32" alt="Cephas Lin"></a></li>
+											<li><a href="https://github.com/carolinacmoravia" title="Caro Caserio" data-bi-name="contributorprofile"><img src="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/contributor.svg" data-src="https://github.com/carolinacmoravia.png?size=32" alt="Caro Caserio"></a></li>
+								</ul>
+							</li>
+
+						</ul>
+
+						<nav id="center-doc-outline" class="doc-outline is-hidden-desktop" data-bi-name="intopic toc" role="navigation" aria-label="On page navigation">
+							<h3>In this article</h3>
+						</nav>
+
+
+
+						<!-- <content> -->
+							
+<p><a href="app-service-web-overview" data-linktype="relative-path">Azure Web Apps</a> provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps. You&#39;ll complete this quickstart in <a href="https://docs.microsoft.com/azure/cloud-shell/overview" data-linktype="external">Cloud Shell</a>, but you can also run these commands locally with <a href="/cli/azure/install-azure-cli" data-linktype="absolute-path">Azure CLI</a>.</p>
+<p><img src="media/app-service-web-get-started-html/hello-world-in-browser-az.png" alt="Home page of sample app" data-linktype="relative-path"></p>
+<p>If you don&#39;t have an Azure subscription, create a <a href="https://azure.microsoft.com/free/?ref=microsoft.com&amp;utm_source=microsoft.com&amp;utm_medium=docs&amp;utm_campaign=visualstudio" data-linktype="external">free account</a> before you begin.</p>
+<h2 id="open-azure-cloud-shell">Open Azure Cloud Shell</h2>
+<p>Azure Cloud Shell is a free, interactive shell that you can use to run the steps in this article. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account. Just select the <strong>Copy</strong> button to copy the code, paste it in Cloud Shell, and then press Enter to run it. There are a few ways to open Cloud Shell:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Select <strong>Try It</strong> in the upper-right corner of a code block.</td>
+<td><img src="../includes/media/cloud-shell-try-it/cli-try-it.png" alt="Cloud Shell in this article" data-linktype="relative-path"></td>
+</tr>
+<tr>
+<td>Open Cloud Shell in your browser.</td>
+<td><a href="https://shell.azure.com/bash" data-linktype="external"><img src="../includes/media/cloud-shell-try-it/launchcloudshell.png" alt="https://shell.azure.com/bash" data-linktype="relative-path"></a></td>
+</tr>
+<tr>
+<td>Select the <strong>Cloud Shell</strong> button on the menu in the upper-right corner of the <a href="https://portal.azure.com" data-linktype="external">Azure portal</a>.</td>
+<td><img src="../includes/media/cloud-shell-try-it/cloud-shell-menu.png" alt="Cloud Shell in the portal" data-linktype="relative-path"></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="install-web-app-extension-for-cloud-shell">Install web app extension for Cloud Shell</h2>
+<p>To complete this quickstart, you need to add the <a href="https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add" data-linktype="external">az web app extension</a>. If the extension is already installed, you should update it to the latest version. To update the web app extension, type <code>az extension update -n webapp</code>.</p>
+<p>To install the webapp extension, run the following command:</p>
+<pre><code class="lang-bash">az extension add --name webapp
+</code></pre><p>When the extension has been installed, the Cloud Shell shows information to the following example:</p>
+<pre><code class="lang-bash">The installed extension &#39;webapp&#39; is in preview.
+</code></pre><h2 id="download-the-sample">Download the sample</h2>
+<p>In the Cloud Shell, create a quickstart directory and then change to it.</p>
+<pre><code class="lang-bash">mkdir quickstart
+
+cd quickstart
+</code></pre><p>Next, run the following command to clone the sample app repository to your quickstart directory.</p>
+<pre><code class="lang-bash">git clone https://github.com/Azure-Samples/html-docs-hello-world.git
+</code></pre><h2 id="create-a-web-app">Create a web app</h2>
+<p>Change to the directory that contains the sample code and run the <code>az webapp up</code> command.</p>
+<p>In the following example, replace &lt;app_name&gt; with a unique app name.</p>
+<pre><code class="lang-bash">cd html-docs-hello-world
+
+az webapp up --location westeurope --name &lt;app_name&gt;
+</code></pre><p>The <code>az webapp up</code> command does the following actions:</p>
+<ul>
+<li><p>Create a default resource group.</p>
+</li>
+<li><p>Create a default app service plan.</p>
+</li>
+<li><p>Create an app with the specified name.</p>
+</li>
+<li><p><a href="https://docs.microsoft.com/azure/app-service/app-service-deploy-zip" data-linktype="external">Zip deploy</a> files from the current working directory to the web app.</p>
+</li>
+</ul>
+<p>This command may take a few minutes to run. While running, it displays information similar to the following example:</p>
+<pre><code class="lang-json">{
+  &quot;app_url&quot;: &quot;https://&lt;app_name&gt;.azurewebsites.net&quot;,
+  &quot;location&quot;: &quot;westeurope&quot;,
+  &quot;name&quot;: &quot;&lt;app_name&gt;&quot;,
+  &quot;os&quot;: &quot;Windows&quot;,
+  &quot;resourcegroup&quot;: &quot;appsvc_rg_Windows_westeurope&quot;,
+  &quot;serverfarm&quot;: &quot;appsvc_asp_Windows_westeurope&quot;,
+  &quot;sku&quot;: &quot;FREE&quot;,
+  &quot;src_path&quot;: &quot;/home/&lt;username&gt;/quickstart/html-docs-hello-world &quot;,
+  &lt; JSON data removed for brevity. &gt;
+}
+</code></pre><p>Make a note of the <code>resourceGroup</code> value. You need it for the <a href="#clean-up-resources" data-linktype="self-bookmark">clean up resources</a> section.</p>
+<h2 id="browse-to-the-app">Browse to the app</h2>
+<p>In a browser, go to the Azure web app URL: <code>http://&lt;app_name&gt;.azurewebsites.net</code>.</p>
+<p>The page is running as an Azure App Service web app.</p>
+<p><img src="media/app-service-web-get-started-html/hello-world-in-browser-az.png" alt="Sample app home page" data-linktype="relative-path"></p>
+<p><strong>Congratulations!</strong> You&#39;ve deployed your first HTML app to App Service.</p>
+<h2 id="update-and-redeploy-the-app">Update and redeploy the app</h2>
+<p>In the Cloud Shell, type <code>nano index.html</code> to open the nano text editor. In the <code>&lt;h1&gt;</code> heading tag, change &quot;Azure App Service - Sample Static HTML Site&quot; to &quot;Azure App Service&quot;, as shown below.</p>
+<p><img src="media/app-service-web-get-started-html/nano-index-html.png" alt="Nano index.html" data-linktype="relative-path"></p>
+<p>Save your changes and exit nano. Use the command <code>^O</code> to save and <code>^X</code> to exit.</p>
+<p>You&#39;ll now redeploy the app with the same <code>az webapp up</code> command.</p>
+<pre><code class="lang-bash">az webapp up --location westeurope --name &lt;app_name&gt;
+</code></pre><p>Once deployment has completed, switch back to the browser window that opened in the <strong>Browse to the app</strong> step, and refresh the page.</p>
+<p><img src="media/app-service-web-get-started-html/hello-azure-in-browser-az.png" alt="Updated sample app home page" data-linktype="relative-path"></p>
+<h2 id="manage-your-new-azure-web-app">Manage your new Azure web app</h2>
+<p>Go to the <a href="https://portal.azure.com" target="_blank" data-linktype="external">Azure portal</a> to manage the web app you created.</p>
+<p>From the left menu, click <strong>App Services</strong>, and then click the name of your Azure web app.</p>
+<p><img src="media/app-service-web-get-started-html/portal1.png" alt="Portal navigation to Azure web app" data-linktype="relative-path"></p>
+<p>You see your web app&#39;s Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.</p>
+<p><img src="media/app-service-web-get-started-html/portal2.png" alt="App Service blade in Azure portal" data-linktype="relative-path"></p>
+<p>The left menu provides different pages for configuring your app.</p>
+<h2 id="clean-up-resources">Clean up resources</h2>
+<p>In the preceding steps, you created Azure resources in a resource group. If you don&#39;t expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the <a href="#create-a-web-app" data-linktype="self-bookmark">create a web app</a> step.</p>
+<pre><code class="lang-bash">az group delete --name appsvc_rg_Windows_westeurope
+</code></pre><p>This command may take a minute to run.</p>
+<h2 id="next-steps">Next steps</h2>
+<div class="nextstepaction"><p><a href="app-service-web-tutorial-custom-domain" data-linktype="relative-path">Map custom domain</a></p>
+</div>
+
+						<!-- </content> -->
+							
+						</main>
+
+						<!-- feedback section -->
+
+
+				
+<section class="feedback-section" data-bi-name="feedback-section">
+	<h2 id="feedback">Feedback</h2>
+
+	<div class="alert choose-feedback-type">
+		<p>
+We would love to hear your thoughts. Choose the type you would like to provide:		</p>
+
+		<div class="choose-feedback-buttons">
+			<a class="button-border feedback-type-product" href="https://feedback.azure.com/forums/169385-web-apps" data-bi-name="product-feedback">
+Product feedback
+				<span class="docon docon-navigate-external" aria-hidden="true"></span>
+			</a>
+
+			<div class="button-group">
+				<button class="button-border feedback-sign-in-button" data-bi-name="feedback-sign-in">
+					<span class="docon docon-brand-github" aria-hidden="true"></span>
+						Sign in to give documentation feedback				</button>
+				<button class="button-border feedback-form-toggle" aria-expanded="false" aria-controls="feedback-form" hidden data-bi-name="documentation-feedback">
+Content feedback				</button>
+				<div class="dropdown has-caret" auto-align>
+					<button class="button-border dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="fbm0" aria-label="Expand documentation feedback menu" data-bi-name="documentation-feedback-menu">
+						<span class="docon docon-chevron-down-light" aria-hidden="true"></span>
+					</button>
+					<div class="dropdown-menu documentation-feedback-menu" id="fbm0" role="menu">
+						You may also leave feedback <a data-bi-name="create-issue-on-github" href="{0}">directly on GitHub <span class="docon docon-navigate-external" aria-hidden="true"></span></a>.					</div>
+				</div>
+			</div>
+		</div>
+		<p><small>Our new feedback system is built on GitHub Issues. Read about this change in <a href="https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs">our blog post</a>.</small></p>
+	</div>
+
+	<form class="feedback-form" id="feedback-form" accept-charset="UTF-8" autocomplete="off" action="javascript:" hidden>
+		<h3 class="feedback-form-heading current-user">
+			<img class="avatar" alt="Avatar" width="36" height="36" aria-hidden="true">
+			<span class="username" aria-hidden="true"></span>
+			<span class="visually-hidden">Liquid error: Can't find the localized string giveDocumentationFeedback for template Conceptual.</span>
+		</h3>
+
+		<label>
+			<span class="visually-hidden">Title</span>
+			<input name="title" type="text" placeholder="Title" required pattern=".*\w.*">
+		</label>
+		<label>
+			<span class="visually-hidden">Leave a comment</span>
+			<textarea name="body" placeholder="Leave a comment" required></textarea>
+		</label>
+
+		<div class="action-container">
+			<button class="primary-action" type="submit" name="submit">Submit feedback</button>
+		</div>
+	</form>
+
+	<div class="feedback-status alert is-loading" role="alert">
+		<p>Loading feedback...</p>
+	</div>
+
+	<div class="feedback-tab-group tabGroup" data-tab-group-independent hidden>
+		<ul role="tablist">
+			<li role="presentation">
+				<a href="#tabpanel-issues-open" role="tab" aria-controls="tabpanel-issues-open" data-tab="issues-open" aria-label="Open Issues"></a>
+			</li>
+			<li role="presentation">
+				<a href="#tabpanel-issues-closed" role="tab" aria-controls="tabpanel-issues-closed" data-tab="issues-closed" aria-label="Closed Issues"></a>
+			</li>
+		</ul>
+		<section id="tabpanel-issues-open" role="tabpanel" data-tab="issues-open">
+			<div class="no-issues-placeholder">There are no open issues</div>
+			<ul class="github-issues-list" aria-label="Open Issues"></ul>
+		</section>
+		<section id="tabpanel-issues-closed" role="tabpanel" data-tab="issues-closed">
+			<div class="no-issues-placeholder">There are no closed issues</div>
+			<ul class="github-issues-list" aria-label="Closed Issues"></ul>
+		</section>
+	</div>
+	<div class="action-container">
+		<a class="view-on-github" href="https://github.com/MicrosoftDocs/azure-docs/issues" data-bi-name="view-on-github" hidden>
+			<span class="docon docon-brand-github" aria-hidden="true"></span>
+			<span>View on GitHub</span>
+			<span class="docon docon-navigate-external" aria-hidden="true"></span>
+		</a>
+	</div>
+</section>						<!-- end feedback section -->
+
+						<div class="footerContainer is-visible-interactive ">
+<footer id="footer" data-bi-name="footer" class="footer-layout" role="contentinfo">
+
+    <a data-mscc-ic="false" class="locale-selector-link" href="#" data-bi-name="select-locale"></a>
+
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/teamblog" data-bi-name="bloglink">Blog</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+			<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+		<li><a data-mscc-ic="false" href="/en-in/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+		<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+    </ul>
+</footer>						</div>
+					</div>
+
+					<!--end of div.columns -->
+
+				</div>
+			
+			<!--end of .primary-holder -->
+			</section>
+
+				<div id="left-container" class="left-container column is-one-third-tablet is-one-quarter-desktop">
+					<nav class="sidebar" id="sidebar" data-bi-name="left toc" role="navigation" aria-label="Main Navigation">
+						<button class="sidebar-header" type="button" aria-label="Close" data-bi-name="contents-collapse">
+							<span>Contents</span>
+							<span class="docon docon-navigate-close" aria-hidden="true"></span>
+						</button>
+						<div id="sidebarContent">
+							<div class="filterHolder">
+							</div>
+							<nav class="toc"></nav>
+							<div class="pdfDownloadHolder"></div>
+						</div>
+					</nav>
+				</div>
+
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-background-light ">
+			</aside>
+		</div>
+
+		<!--end of .mainContainer -->
+	</div>
+
+	<div id="openFeedbackContainer" class="openfeedback-container"></div>
+
+	<div class="footerContainer is-hidden-interactive ">
+<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+
+    <a data-mscc-ic="false" class="locale-selector-link" href="#" data-bi-name="select-locale"></a>
+
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/teamblog" data-bi-name="bloglink">Blog</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+			<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+		<li><a data-mscc-ic="false" href="/en-in/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+		<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+    </ul>
+</footer>	</div>
+
+	<div class="action-panel"></div>
+</body>
+</html>
